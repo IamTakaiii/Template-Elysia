@@ -1,15 +1,25 @@
 {
-  "name": "Template-Elysia",
-  "version": "1.0.50",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "elysia": "latest"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "module": "src/index.js"
+	"name": "Template-Elysia",
+	"version": "1.0.50",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "bun run --watch src/app.ts"
+	},
+	"dependencies": {
+		"@elysiajs/cors": "^1.3.3",
+		"@elysiajs/jwt": "^1.3.0",
+		"@elysiajs/swagger": "^1.2.2",
+		"dotenv": "^16.5.0",
+		"drizzle-kit": "^0.31.1",
+		"drizzle-orm": "^0.43.1",
+		"elysia": "latest",
+		"elysia-rate-limit": "^4.3.0",
+		"elysiajs-helmet": "^1.0.2",
+		"logixlysia": "^4.2.7",
+		"pg": "^8.15.6"
+	},
+	"devDependencies": {
+		"bun-types": "latest"
+	},
+	"module": "src/index.js"
 }
