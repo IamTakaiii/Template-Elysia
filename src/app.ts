@@ -7,8 +7,9 @@ import logixlysia from "logixlysia";
 
 import { loginxConfig } from "./shared/configs/logger";
 import { swaggerConfig } from "./shared/configs/swagger";
-import { AppRoutes } from "./routes";
+import routes from "./routes";
 import { ENV } from "./shared/configs/env";
+import { createGlobalErrorResponse } from "./shared/utils/formatter.util";
 
 const app = new Elysia()
 	.use(cors())
@@ -16,6 +17,7 @@ const app = new Elysia()
 	.use(logixlysia(loginxConfig))
 	.use(swagger(swaggerConfig))
 	.use(rateLimit())
-	.use(AppRoutes);
+	.use(routes)
+	.onError(createGlobalErrorResponse);
 
 app.listen(ENV.PORT);

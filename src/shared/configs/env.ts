@@ -10,6 +10,8 @@ const envSchema = t.Object({
 	DB_URL: t.String(),
 	JWT_SECRET: t.String(),
 	JWT_EXPIRES_IN: t.String(),
+	SUPABASE_URL: t.String(),
+	SUPABASE_ANON_KEY: t.String(),
 });
 
 export const ENV = Value.Parse(envSchema, process.env);

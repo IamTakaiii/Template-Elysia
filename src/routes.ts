@@ -1,5 +1,6 @@
 import Elysia from "elysia";
+import { authController } from "./auth/auth.controller";
 
-const routes = new Elysia({ prefix: "/api/v1" });
+const authenModule = new Elysia({ prefix: "/auth" }).use(authController);
 
-export { routes as AppRoutes };
+export default new Elysia({ prefix: "/api/v1" }).use(authenModule);
