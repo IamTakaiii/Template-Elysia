@@ -1,16 +1,14 @@
-import { defineConfig } from "drizzle-kit";
-import { ENV } from "./src/shared/configs/env";
+import type { Config } from "drizzle-kit"
+import env from "env-var"
 
-export default defineConfig({
-	out: "./drizzle",
-	schema: "./src/shared/db/postgres/schemas",
-	dialect: "postgresql",
-	dbCredentials: {
-		url: ENV.DB_URL,
-	},
-	migrations: {
-		schema: "public",
-		table: "migrations",
-		prefix: "timestamp",
-	},
-});
+const DATABASE_URL = env.get("DATABASE_URL").required().asString()
+
+export default {
+    schema: "./src/db/schemas",
+    out: "./drizzle",
+    dialect: "postgresql",
+    casing: "snake_case",
+    dbCredentials: {
+        url: DATABASE_URL,
+    },
+} satisfies Config
